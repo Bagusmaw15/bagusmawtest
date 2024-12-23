@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Perusahaan</title>
+    <title>Ubah Warna</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        header {
-            background-color: blue;
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
             color: white;
-            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .profile-photo {
-            margin: 20px auto;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .description {
-            margin: 20px auto;
-            width: 80%;
-            line-height: 1.6;
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Profil Perusahaan</h1>
-    </header>
+    <button id="ubahWarna">Ubah Warna</button>
 
-    <img src="poto.png" alt="Profile Photo" class="profile-photo">
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
 
-    <div class="description">
-        <p>Xionco adalah perusahaan teknologi yang berfokus pada pengembangan solusi inovatif untuk kebutuhan digital modern. Berdiri sejak tahun 2010, Xionco telah berhasil menghadirkan produk-produk unggulan di bidang perangkat lunak dan layanan berbasis cloud yang dirancang untuk membantu bisnis dari berbagai sektor dalam meningkatkan efisiensi dan produktivitas.</p>
-        <p>Dengan tim ahli yang berdedikasi dan jaringan mitra global, Xionco berkomitmen untuk memberikan solusi yang andal dan berkelanjutan. Perusahaan ini juga berupaya menciptakan dampak positif melalui inovasi teknologi, sambil memastikan bahwa semua layanannya memenuhi standar kualitas tertinggi di industri.</p>
-    </div>
+        document.getElementById('ubahWarna').addEventListener('click', () => {
+            document.body.style.backgroundColor = getRandomColor();
+        });
+    </script>
 </body>
 </html>
